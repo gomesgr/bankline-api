@@ -23,6 +23,11 @@ public class MovimentacaoController {
         return repo.findAll();
     }
 
+    @GetMapping("/{contaId}")
+    public List<Movimentacao> findAll(@PathVariable("contaId") Integer contaId) {
+        return repo.findByContaId(contaId);
+    }
+
     @PostMapping
     public void save(@RequestBody MovimentacaoDTO movimentacao) {
         service.save(movimentacao);
